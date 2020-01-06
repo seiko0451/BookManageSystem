@@ -1,5 +1,7 @@
 package com.BookManageSystem.Logic;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,17 +12,23 @@ import com.BookManageSystem.Dao.BooklistDao;
 import com.BookManageSystem.Entity.BookSearchFieldDto;
 import com.BookManageSystem.Entity.BooklistDto;
 
+//検索処理ロジック（実装クラス）
 @Component("BookSearchLogicImpl")
 public class BookSearchLogicImpl implements BookSearchLogic {
 
-	//BOOKlISTテーブル用DAO
 	@Autowired
 	@Qualifier("BooklistDaoImpl")
     BooklistDao booklistDao;
 
 	@Override
-    public List<BooklistDto> search(BookSearchFieldDto bookSearchFieldDto){
+    public List<BooklistDto> search(BookSearchFieldDto bookSearchFieldDto) throws SQLException{
 
-    	return booklistDao.selAuthor(bookSearchFieldDto);
+		List<BooklistDto> booklistDtoList = new ArrayList<BooklistDto>();		
+		try {
+		    booklistDtoList = booklistDao.selAuthor(bookSearchFieldDto);	
+		}catch(SQLException e) {
+			throw new SQLException();
+		}
+		return booklistDtoList;
     }
 }

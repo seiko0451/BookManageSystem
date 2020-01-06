@@ -1,5 +1,7 @@
 package com.BookManageSystem.Logic;
 
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -7,21 +9,25 @@ import org.springframework.stereotype.Component;
 import com.BookManageSystem.Dao.BooklistDao;
 import com.BookManageSystem.Entity.BookRegisterFieldDto;
 
+//登録処理ロジック（実装クラス）
 @Component("BookRegisterLogicImpl")
 public class BookRegisterLogicImpl implements BookRegisterLogic {
 
-	//BOOKlISTテーブル用DAO
 	@Autowired
 	@Qualifier("BooklistDaoImpl")
     BooklistDao booklistDao;
 	
     @Override
-    public void register(BookRegisterFieldDto bookRegisterFieldDto){
+    public void register(BookRegisterFieldDto bookRegisterFieldDto) throws SQLException{
 
-        Boolean isError = booklistDao.upsert(bookRegisterFieldDto);
-
+        Boolean isError;
+        try {
+            isError = booklistDao.upsert(bookRegisterFieldDto);
+        }catch(SQLException e){
+        	throw new SQLException();
+        }       
         if(isError) {
-        	System.out.println("登録処理に失敗しました");
+        	throw new SQLException();
         }
     }
 }

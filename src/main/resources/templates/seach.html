@@ -4,9 +4,9 @@
     <title>検索画面</title>
   </head>
   <body>
-    <a href="menu.html">メニューへ</a><br>
+    <a href="menu">メニューへ</a><br>
     <span th:text="${message}"></span>
-    <form action="seachAction.html" modelAttribute="BookSearchFieldDto">
+    <form action="seachAction" modelAttribute="BookSearchFieldDto">
                      ★★★今回は著者名での検索のみ★★★<br>
               著者名<input type="text" name="AuthorName"><br>
       <input type="submit" name="検索"><br>

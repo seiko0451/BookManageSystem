@@ -1,5 +1,6 @@
 package com.BookManageSystem.Entity;
 
+//検索画面入力DTO
 public class BookSearchFieldDto{
 
 	String AuthorName;       //著者名   //今回は正規化していない

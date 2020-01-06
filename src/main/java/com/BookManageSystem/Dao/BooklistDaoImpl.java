@@ -1,5 +1,6 @@
 package com.BookManageSystem.Dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +10,12 @@ import com.BookManageSystem.Entity.BookRegisterFieldDto;
 import com.BookManageSystem.Entity.BookSearchFieldDto;
 import com.BookManageSystem.Entity.BooklistDto;
 
+//BOOKLISTテーブル用DAO（実装クラス）
 @Component("BooklistDaoImpl")
 public class BooklistDaoImpl implements BooklistDao{
 
-    //検索（著者名）
     @Override
-    public List<BooklistDto> selAuthor(BookSearchFieldDto bookSearchFieldDto){
+    public List<BooklistDto> selAuthor(BookSearchFieldDto bookSearchFieldDto) throws SQLException{
 
     	//検索結果保持リスト
         List<BooklistDto> booklistDtoList = new ArrayList<BooklistDto>();
@@ -38,9 +39,8 @@ public class BooklistDaoImpl implements BooklistDao{
         return booklistDtoList;
     }
 
-    //登録
     @Override
-    public boolean upsert(BookRegisterFieldDto bookRegisterFieldDto){
+    public boolean upsert(BookRegisterFieldDto bookRegisterFieldDto) throws SQLException{
 
         //本来はこのあたりで検索条件をセットしてDBアクセス
     	

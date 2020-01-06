@@ -1,5 +1,6 @@
 package com.BookManageSystem.Entity;
 
+//登録画面入力DTO
 public class BookRegisterFieldDto{
 
 	String BookName;         //タイトル

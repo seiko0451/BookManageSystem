@@ -2,6 +2,7 @@ package com.BookManageSystem.Entity;
 
 import java.util.Date;
 
+//BOOKLISTテーブルDTO
 public class BooklistDto {
 	String Id;               //ID
 	String BookName;         //タイトル
