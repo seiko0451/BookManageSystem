@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>結果画面</title>
+  </head>
+  <body>
+  <a href="menu.html">メニューへ</a><br>
+        ★★★今回はサーバ側から固定値が返る★★★<br>
+    <table border="1">
+        <tr th:each="booklistDto : ${booklistDtoList}">
+            <td th:text="${booklistDto.AuthorName}"></td>
+            <td th:text="${booklistDto.BookName}"></td>
+            <td th:text="${booklistDto.GenreName}"></td>
+            <td th:text="${booklistDto.PublisherName}"></td>
+            <td th:text="${booklistDto.Memo}"></td>
+        </tr>
+    </table>
+  </body>
+</html>

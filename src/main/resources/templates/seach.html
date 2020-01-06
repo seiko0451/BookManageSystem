@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>検索画面</title>
+  </head>
+  <body>
+    <a href="menu.html">メニューへ</a><br>
+    <span th:text="${message}"></span>
+    <form action="seachAction.html" modelAttribute="BookSearchFieldDto">
+                     ★★★今回は著者名での検索のみ★★★<br>
+              著者名<input type="text" name="AuthorName"><br>
+      <input type="submit" name="検索"><br>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>登録画面</title>
+  </head>
+  <body>
+    <a href="menu.html">メニューへ</a><br>
+    <span th:text="${message}"></span>
+    <br>
+    <form action="registerAction.html"modelAttribute="BookRegisterFieldDto">
+      <table>
+        <tr>
+          <td>タイトル</td><td><input type="text" name="BookName"></td>
+        </tr>
+        <tr>
+          <td>著者名</td><td><input type="text" name="AuthorName"></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td><td><input type="text" name="GenreName"></td>
+        </tr>
+        <tr>
+          <td>出版社</td><td><input type="text" name="PublisherName"></td>
+        </tr>
+        <tr>
+          <td>メモ</td><td><input type="text" name="Memo"></td>
+        </tr>
+      </table>
+      <br>
+      <input type="submit" value="登録">
+    </form>
+  </body>
+</html>
